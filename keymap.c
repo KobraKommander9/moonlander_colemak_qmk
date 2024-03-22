@@ -72,7 +72,7 @@ enum tap_dance_codes {
   DANCE_4,
   DANCE_5,
   DANCE_6,
-  DANCE_7,
+  SHIFT_DANCE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         HOME_A,         HOME_R,         HOME_S,         HOME_T,         KC_D,           KC_HYPR,                                        KC_MEH,         KC_H,           HOME_N,         HOME_E,         HOME_I,         HOME_O,         KC_QUOTE,
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           TD(DANCE_0),    KC_B,                                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
     KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,       TD(DANCE_1),                                                    TD(DANCE_4),    KC_LBRACKET,    KC_RBRACKET,    KC_UP,          KC_DOWN,        TD(DANCE_3),
-    CAPS_WORD,      KC_BSPACE,      TD(DANCE_2),                    TD(DANCE_5),    KC_ENTER,       KC_SPACE
+    TD(SHIFT_DANCE),KC_BSPACE,      TD(DANCE_2),                    TD(DANCE_5),    KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
@@ -489,6 +489,27 @@ void dance_6_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[6].step = 0;
 }
 
+static tap shift_dance_state = {
+    .is_press_action = true,
+    .step = 0
+};
+
+void shift_dance_finished(qk_tap_dance_state_t *state, void *user_data) {
+    shift_dance_state.step = dance_step(state);
+    switch (shift_dance_state.step) {
+        case SINGLE_TAP: set_oneshot_mods(MOD_BIT(KC_LSFT)); break; // emulate OSM for Lshift
+        case DOUBLE_TAP: register_code(KC_LSFT); break;
+    }
+}
+
+void shift_dance_reset(qk_tap_dance_state_t *state, void *user_data) {
+    switch (shift_dance_state.step) {
+        case SINGLE_TAP: clear_oneshot_mods(); break;
+        case DOUBLE_TAP: unregister_code(KC_LSFT); break;
+    }
+    shift_dance_state.step = 0;
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
         [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
@@ -497,4 +518,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
         [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
         [DANCE_5] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_5, dance_5_finished, dance_5_reset),
         [DANCE_6] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_6_finished, dance_6_reset),
+        [SHIFT_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, shift_dance_finished, shift_dance_reset),
 };

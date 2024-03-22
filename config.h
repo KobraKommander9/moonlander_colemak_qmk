@@ -5,7 +5,7 @@
 #define ORYX_CONFIGURATOR
 #define IGNORE_MOD_TAP_INTERRUPT
 #undef TAPPING_TERM
-#define TAPPING_TERM 155
+#define TAPPING_TERM 200
 
 // Enable rapid switch from tap to hold, disabled double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0
