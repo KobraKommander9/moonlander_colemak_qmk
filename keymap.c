@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         HOME_A,         HOME_R,         HOME_S,         HOME_T,         KC_D,           KC_HYPR,                                        KC_MEH,         KC_H,           HOME_N,         HOME_E,         HOME_I,         HOME_O,         KC_QUOTE,
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           TD(DANCE_0),    KC_B,                                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
     KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,       TD(DANCE_1),                                                    TD(DANCE_4),    KC_LBRACKET,    KC_RBRACKET,    KC_UP,          KC_DOWN,        TD(DANCE_3),
-    OSM(MOD_LSFT),  KC_BSPACE,      TD(DANCE_2),                    TD(DANCE_5),    KC_ENTER,       KC_SPACE
+    KC_BSPACE,      MT(MOD_LSFT, KC_DELETE),TD(DANCE_2),            TD(DANCE_5),    KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
@@ -195,61 +195,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             rgblight_mode(1);
         }
         return false;
-
-    case RCTL_T(KC_N):
-        /*
-        This piece of code nullifies the effect of Right Shift when tapping
-        the RCTL_T(KC_N) key.
-        This helps rolling over RSFT_T(KC_E) and RCTL_T(KC_N)
-        to obtain the intended "en" instead of "N".
-        Consequently, capital N can only be obtained by tapping RCTL_T(KC_N)
-        and holding LSFT_T(KC_S) (which is the left Shift mod tap).
-        */
-
-        /*
-        Detect the tap.
-        We're only interested in overriding the tap behavior
-        in a certain cicumstance. The hold behavior can stay the same.
-        */
-        if (record->event.pressed && record->tap.count > 0) {
-            // Detect right Shift
-            if (get_mods() & MOD_BIT(KC_RSHIFT)) {
-                // temporarily disable right Shift
-                // so that we can send KC_E and KC_N
-                // without Shift on.
-                unregister_mods(MOD_BIT(KC_RSHIFT));
-                tap_code(KC_E);
-                tap_code(KC_N);
-                // restore the mod state
-                add_mods(MOD_BIT(KC_RSHIFT));
-                // to prevent QMK from processing RCTL_T(KC_N) as usual in our special case
-                return false;
-            }
-        }
-         /*else process RCTL_T(KC_N) as usual.*/
-        return true;
-
-    case LCTL_T(KC_T):
-        /*
-        This piece of code nullifies the effect of Left Shift when
-        tapping the LCTL_T(KC_T) key.
-        This helps rolling over LSFT_T(KC_S) and LCTL_T(KC_T)
-        to obtain the intended "st" instead of "T".
-        Consequently, capital T can only be obtained by tapping LCTL_T(KC_T)
-        and holding RSFT_T(KC_E) (which is the right Shift mod tap).
-        */
-
-        if (record->event.pressed && record->tap.count > 0) {
-            if (get_mods() & MOD_BIT(KC_LSHIFT)) {
-                unregister_mods(MOD_BIT(KC_LSHIFT));
-                tap_code(KC_S);
-                tap_code(KC_T);
-                add_mods(MOD_BIT(KC_LSHIFT));
-                return false;
-            }
-        }
-         /*else process LCTL_T(KC_T) as usual.*/
-        return true;
     }
     return true;
 }
@@ -257,9 +202,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_S:
-            return TAPPING_TERM - 65;
+            return TAPPING_TERM - 70;
         case HOME_E:
-            return TAPPING_TERM - 65;
+            return TAPPING_TERM - 70;
         default:
             return TAPPING_TERM;
     }
