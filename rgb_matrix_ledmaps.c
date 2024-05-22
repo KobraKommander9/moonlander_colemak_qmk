@@ -7,8 +7,6 @@ void keyboard_post_init_user(void) {
 }
 
 void set_layer_color(int layer) {
-  const ledmap *l = &(ledmaps[layer]);
-
   for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
     HSV hsv = {
       .h = pgm_read_byte(&ledmap[layer][i][0]),
@@ -30,7 +28,9 @@ void rgb_matrix_indicators_user(void) {
   if (rawhid_state.rgb_control) {
       return;
   }
+
   if (keyboard_config.disable_layer_led) { return; }
+
   switch (biton32(layer_state)) {
     case 0:
       set_layer_color(0);

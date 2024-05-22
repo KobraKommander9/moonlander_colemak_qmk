@@ -26,11 +26,8 @@
     k62, k72, k82, k92, ka2, \
     k61, k71, k81, k91, \
     k60, k70, k80, \
-    kb6, kb5, kb4, kb3
+    kb6, kb5, kb4, kb3 \
 }
-
-typedef uint8_t ledmap[DRIVER_LED_TOTAL][3];
-extern const ledmap ledmaps[];
 
 #define RED { HSV_RED }
 #define CORAL { HSV_CORAL }

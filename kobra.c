@@ -1,6 +1,4 @@
 #include "kobra.h"
-#include "process_record.h"
-#include "rgb_matrix_ledmaps.h"
 
 void housekeeping_task_user(void) {
     if (!is_transport_connected()) {

@@ -1,5 +1,7 @@
 #pragma once
 #include QMK_KEYBOARD_H
+#include "process_record.h"
+#include "rgb_matrix_ledmaps.h"
 
 enum layout_names {
   COLEMAK = 0,
