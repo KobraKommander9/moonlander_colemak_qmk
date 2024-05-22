@@ -9,6 +9,11 @@ RGB_MATRIX_CUSTOM_KB = yes
 TAP_DANCE_ENABLE = yes
 SPACE_CADET_ENABLE = no
 CAPS_WORD_ENABLE = yes
-SRC = matrix.c
 DYNAMIC_TAPPING_TERM_ENABLE = yes
 HOLD_ON_OTHER_KEY_PRESS = no
+
+SRC = matrix.c
+
+SRC += kobra.c
+SRC += process_record.c
+SRC += rgb_matrix_ledmaps.c

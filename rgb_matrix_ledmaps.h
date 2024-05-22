@@ -1,4 +1,5 @@
 #pragma once
+#include QMK_KEYBOARD_H
 #include "quantum.h"
 
 #define RGB_MATRIX_LAYOUT_LEDMAP( \
@@ -28,6 +29,9 @@
     k60, k70, k80, \
     kb6, kb5, kb4, kb3 \
 }
+
+typedef uint8_t ledmap[DRIVER_LED_TOTAL][3];
+extern const ledmap ledmaps[];
 
 #define RED { HSV_RED }
 #define CORAL { HSV_CORAL }

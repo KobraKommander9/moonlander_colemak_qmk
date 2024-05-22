@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+const ledmap PROGMEM ledmaps[] = {
     [COLEMAK] = {
         // left
         {74,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255},
