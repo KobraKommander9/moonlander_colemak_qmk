@@ -45,7 +45,7 @@ const ledmap PROGMEM ledmaps[] = {
         MAGENT,         RED,            RED,            RED,            RED,            RED,            MAGENT,                                     MAGENT,         RED,            RED,            RED,            RED,            RED,            GREEN,
         MAGENT,         RED,            RED,            RED,            RED,            RED,                                                                        RED,            RED,            GREEN,          GREEN,          GREEN,          MAGENT,
         MAGENT,         CYAN,           CYAN,           MAGENT,         GREEN,                          PURPLE,                                     PURPLE,                         GREEN,          GREEN,          CYAN,           CYAN,           ______,
-                                                                        PURPLE,         PURPLE,         ______,                                     ______,         PURPLE,         PURPLE
+                                                                        PURPLE,         PURPLE,         ______,                                     TEAL,           PURPLE,         PURPLE
     ),
     [ARROWS] = RGB_MATRIX_LAYOUT_LEDMAP(
         RED,            RED,            RED,            RED,            RED,            RED,            RED,                                        RED,            BLUE,           BLUE,           BLUE,           RED,            RED,            RED,
