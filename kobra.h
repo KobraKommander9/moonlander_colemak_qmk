@@ -4,20 +4,9 @@
 
 enum layout_names {
   COLEMAK = 0,
-  SYMBOLS,
   ARROWS,
   MEDIA,
   QWERTY,
-};
-
-enum tap_dance_codes {
-  DANCE_0,
-  DANCE_1,
-  DANCE_2,
-  DANCE_3,
-  DANCE_4,
-  DANCE_5,
-  DANCE_6,
 };
 
 #define KC_MAC_UNDO LGUI(KC_Z)
@@ -63,15 +52,6 @@ enum custom_keycodes {
 #define QWRT_K RSFT_T(KC_K)
 #define QWRT_L LALT_T(KC_L)
 #define QWRT_SEMI RGUI_T(KC_SCOLON)
-
-// Dance keys
-#define TD0 TD(DANCE_0)
-#define TD1 TD(DANCE_1)
-#define TD2 TD(DANCE_2)
-#define TD3 TD(DANCE_3)
-#define TD4 TD(DANCE_4)
-#define TD5 TD(DANCE_5)
-#define TD6 TD(DANCE_6)
 
 // One shot mods
 #define OS_LSFT OSM(MOD_LSFT)

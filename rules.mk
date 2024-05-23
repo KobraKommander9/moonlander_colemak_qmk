@@ -17,3 +17,4 @@ SRC = matrix.c
 SRC += kobra.c
 SRC += process_record.c
 SRC += rgb_matrix_ledmaps.c
+SRC += tap_dance.c
