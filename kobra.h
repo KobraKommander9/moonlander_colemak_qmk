@@ -7,6 +7,8 @@ enum layout_names {
   ARROWS,
   MEDIA,
   QWERTY,
+  BOARD,
+  COLORS,
 };
 
 #define KC_MAC_UNDO LGUI(KC_Z)
