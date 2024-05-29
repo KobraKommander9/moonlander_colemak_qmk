@@ -90,10 +90,10 @@ const ledmap PROGMEM ledmaps[] = {
     [BOARD] = RGB_MATRIX_LAYOUT_LEDMAP(
         RED,            RED,            RED,            RED,            RED,            RED,            RED,                                        RED,            RED,            RED,            RED,            RED,            RED,            RED,
         RED,            RED,            RED,            RED,            RED,            RED,            RED,                                        RED,            RED,            MAGENT,         MAGENT,         MAGENT,            RED,            RED,
-        RED,            GREEN,          GREEN,          GREEN,          GREEN,          RED,            RED,                                        RED,            RED,            RED,            RED,            RED,           RED,            RED,
+        RED,            CYAN,           CYAN,           CYAN,           CYAN,           RED,            RED,                                        RED,            RED,            RED,            RED,            RED,           RED,            RED,
         RED,            RED,            RED,            RED,            RED,            RED,                                                                        RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,                            RED,                                        GREEN,                          RED,            RED,            RED,            RED,            RED,
-                                                                        RED,            RED,            GREEN,                                      GREEN,          GREEN,          RED
+        RED,            RED,            RED,            RED,            RED,                            RED,                                        MAGENT,                         RED,            RED,            RED,            RED,            RED,
+                                                                        RED,            RED,            GREEN,                                      MAGENT,         MAGENT,         RED
     ),
     [COLORS] = RGB_MATRIX_LAYOUT_LEDMAP(
         RED,            RED,            RED,            RED,            RED,            RED,            RED,                                        RED,            RED,            RED,            RED,            RED,            RED,            RED,
