@@ -2,15 +2,20 @@
 #include QMK_KEYBOARD_H
 #include "rgb_matrix_ledmaps.h"
 
+// Layers
 enum layout_names {
-  COLEMAK = 0,
-  ARROWS,
-  MEDIA,
-  QWERTY,
-  BOARD,
-  COLORS,
+    COLEMAK = 0,
+    ARROWS,
+    MEDIA,
+    QWERTY,
+    BOARD,
+    COLORS,
+    GIT,
 };
 
+#define RGBLIGHT_MAX_LAYERS 7
+
+// Key codes
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
 #define KC_MAC_COPY LGUI(KC_C)
@@ -30,7 +35,27 @@ enum layout_names {
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
+    RGB_SLD = ML_SAFE_RANGE,
+};
+
+enum git_macros {
+    G_INIT = RGB_SLD + 1,     // git init
+    G_CLONE,                  // git clone
+    G_CONF,                   // git config --global
+    G_ADD,                    // git add
+    G_DIFF,                   // git diff
+    G_QK_BOOT,                // git reset
+    G_REBAS,                  // git rebase
+    G_BRANH,                  // git branch
+    G_CHECK,                  // git checkout
+    G_MERGE,                  // git merge
+    G_REMTE,                  // git remote add
+    G_FETCH,                  // git fetch
+    G_PULL,                   // git pull
+    G_PUSH,                   // git push
+    G_COMM,                   // git commit
+    G_STAT,                   // git status
+    G_LOG,                    // git reflog
 };
 
 // Left-hand home row mods
