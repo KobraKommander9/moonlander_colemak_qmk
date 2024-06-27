@@ -8,9 +8,8 @@ enum layout_names {
     ARROWS,
     MEDIA,
     QWERTY,
+    MOUSE,
     BOARD,
-    COLORS,
-    GIT,
 };
 
 #define RGBLIGHT_MAX_LAYERS 7
@@ -36,26 +35,6 @@ enum layout_names {
 
 enum custom_keycodes {
     RGB_SLD = ML_SAFE_RANGE,
-};
-
-enum git_macros {
-    G_INIT = RGB_SLD + 1,     // git init
-    G_CLONE,                  // git clone
-    G_CONF,                   // git config --global
-    G_ADD,                    // git add
-    G_DIFF,                   // git diff
-    G_QK_BOOT,                // git reset
-    G_REBAS,                  // git rebase
-    G_BRANH,                  // git branch
-    G_CHECK,                  // git checkout
-    G_MERGE,                  // git merge
-    G_REMTE,                  // git remote add
-    G_FETCH,                  // git fetch
-    G_PULL,                   // git pull
-    G_PUSH,                   // git push
-    G_COMM,                   // git commit
-    G_STAT,                   // git status
-    G_LOG,                    // git reflog
 };
 
 // Left-hand home row mods

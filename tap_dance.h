@@ -24,6 +24,7 @@ enum tap_dance_codes {
   DANCE_SCREENSHOT,
   DANCE_MEDIA,
   DANCE_QWERTY,
+  DANCE_Z_MOUSE,
 };
 
 // Dance keys
@@ -31,6 +32,7 @@ enum tap_dance_codes {
 #define TD1 TD(DANCE_SCREENSHOT)
 #define TD2 TD(DANCE_MEDIA)
 #define TD3 TD(DANCE_QWERTY)
+#define TD4 TD(DANCE_Z_MOUSE)
 
 void on_dance_0(qk_tap_dance_state_t *state, void *user_data);
 void dance_0_finished(qk_tap_dance_state_t *state, void *user_data);
@@ -46,3 +48,7 @@ void dance_2_reset(qk_tap_dance_state_t *state, void *user_data);
 
 void dance_3_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_3_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void on_dance_4(qk_tap_dance_state_t *state, void *user_data);
+void dance_4_finished(qk_tap_dance_state_t *state, void *user_data);
+void dance_4_reset(qk_tap_dance_state_t *state, void *user_data);
