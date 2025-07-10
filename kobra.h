@@ -10,6 +10,7 @@ enum layout_names {
     QWERTY,
     MOUSE,
     BOARD,
+    FUNCS,
 };
 
 #define RGBLIGHT_MAX_LAYERS 7

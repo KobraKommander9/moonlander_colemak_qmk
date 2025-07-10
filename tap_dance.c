@@ -14,7 +14,7 @@ uint8_t dance_step(qk_tap_dance_state_t *state) {
 
 // ----------------------------------------------------------------------------
 
-static tap dance_state[5];
+static tap dance_state[6];
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     [DANCE_V] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
@@ -22,6 +22,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [DANCE_MEDIA] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
     [DANCE_QWERTY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_3_finished, dance_3_reset),
     [DANCE_Z_MOUSE] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
+    [DANCE_FUNCS] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_5_finished, dance_5_reset),
 };
 
 // ----------------------------------------------------------------------------
