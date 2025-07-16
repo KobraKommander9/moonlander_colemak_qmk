@@ -1,10 +1,16 @@
 #pragma once
-#include "kobra.h"
+
+#include "layers.h"
+#include "keys.h"
 
 typedef struct {
     bool is_press_action;
     uint8_t step;
 } tap;
+
+uint8_t dance_step(tap_dance_state_t *state);
+
+extern tap_dance_action_t tap_dance_actions[4];
 
 enum {
     SINGLE_TAP = 1,
@@ -15,17 +21,11 @@ enum {
     MORE_TAPS
 };
 
-uint8_t dance_step(qk_tap_dance_state_t *state);
-
-// ----------------------------------------------------------------------------
-
 enum tap_dance_codes {
-  DANCE_V,
-  DANCE_SCREENSHOT,
-  DANCE_MEDIA,
-  DANCE_QWERTY,
-  DANCE_Z_MOUSE,
-  DANCE_FUNCS,
+    DANCE_V,
+    DANCE_SCREENSHOT,
+    DANCE_MEDIA,
+    DANCE_QWERTY,
 };
 
 // Dance keys
@@ -33,27 +33,18 @@ enum tap_dance_codes {
 #define TD1 TD(DANCE_SCREENSHOT)
 #define TD2 TD(DANCE_MEDIA)
 #define TD3 TD(DANCE_QWERTY)
-#define TD4 TD(DANCE_Z_MOUSE)
-#define TD5 TD(DANCE_FUNCS)
 
-void on_dance_0(qk_tap_dance_state_t *state, void *user_data);
-void dance_0_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_0_reset(qk_tap_dance_state_t *state, void *user_data);
+void on_dance_0(tap_dance_state_t *state, void *user_data);
+void dance_0_finished(tap_dance_state_t *state, void *user_data);
+void dance_0_reset(tap_dance_state_t *state, void *user_data);
 
-void on_dance_1(qk_tap_dance_state_t *state, void *user_data);
-void dance_1_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_1_reset(qk_tap_dance_state_t *state, void *user_data);
+void on_dance_1(tap_dance_state_t *state, void *user_data);
+void dance_1_finished(tap_dance_state_t *state, void *user_data);
+void dance_1_reset(tap_dance_state_t *state, void *user_data);
 
-void on_dance_2(qk_tap_dance_state_t *state, void *user_data);
-void dance_2_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_2_reset(qk_tap_dance_state_t *state, void *user_data);
+void on_dance_2(tap_dance_state_t *state, void *user_data);
+void dance_2_finished(tap_dance_state_t *state, void *user_data);
+void dance_2_reset(tap_dance_state_t *state, void *user_data);
 
-void dance_3_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_3_reset(qk_tap_dance_state_t *state, void *user_data);
-
-void on_dance_4(qk_tap_dance_state_t *state, void *user_data);
-void dance_4_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_4_reset(qk_tap_dance_state_t *state, void *user_data);
-
-void dance_5_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_5_reset(qk_tap_dance_state_t *state, void *user_data);
+void dance_3_finished(tap_dance_state_t *state, void *user_data);
+void dance_3_reset(tap_dance_state_t *state, void *user_data);

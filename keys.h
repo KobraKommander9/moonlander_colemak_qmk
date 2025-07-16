@@ -1,41 +1,7 @@
 #pragma once
-#include QMK_KEYBOARD_H
-#include "rgb_matrix_ledmaps.h"
-
-// Layers
-enum layout_names {
-    COLEMAK = 0,
-    ARROWS,
-    MEDIA,
-    QWERTY,
-    MOUSE,
-    BOARD,
-    FUNCS,
-};
-
-#define RGBLIGHT_MAX_LAYERS 7
-
-// Key codes
-#define KC_MAC_UNDO LGUI(KC_Z)
-#define KC_MAC_CUT LGUI(KC_X)
-#define KC_MAC_COPY LGUI(KC_C)
-#define KC_MAC_PASTE LGUI(KC_V)
-#define KC_PC_UNDO LCTL(KC_Z)
-#define KC_PC_CUT LCTL(KC_X)
-#define KC_PC_COPY LCTL(KC_C)
-#define KC_PC_PASTE LCTL(KC_V)
-#define ES_LESS_MAC KC_GRAVE
-#define ES_GRTR_MAC LSFT(KC_GRAVE)
-#define ES_BSLS_MAC ALGR(KC_6)
-#define NO_PIPE_ALT KC_GRAVE
-#define NO_BSLS_ALT KC_EQUAL
-#define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)
-#define BP_NDSH_MAC ALGR(KC_8)
-#define SE_SECT_MAC ALGR(KC_6)
-#define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
-    RGB_SLD = ML_SAFE_RANGE,
+    VRSN = SAFE_RANGE,
 };
 
 // Left-hand home row mods
@@ -58,10 +24,7 @@ enum custom_keycodes {
 #define QWRT_J RCTL_T(KC_J)
 #define QWRT_K RSFT_T(KC_K)
 #define QWRT_L LALT_T(KC_L)
-#define QWRT_SEMI RGUI_T(KC_SCOLON)
-
-// One shot mods
-#define OS_LSFT OSM(MOD_LSFT)
+#define QWRT_SEMI RGUI_T(KC_SCLN)
 
 // Software keys
 #define S_BRT_DN KC_BRIGHTNESS_DOWN

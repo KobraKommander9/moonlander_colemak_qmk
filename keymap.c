@@ -1,18 +1,22 @@
-#include "kobra.h"
+#include QMK_KEYBOARD_H
+#include "version.h"
+#include "combos.h"
+#include "keys.h"
+#include "layers.h"
 #include "tap_dance.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [COLEMAK] = LAYOUT_moonlander(
         KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_LEFT,                                KC_RIGHT,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-        CAPS_WORD,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           TD5,                                    XXXXXXX,        KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_BSLASH,
+        CW_TOGG,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           TO(SYMBOLS),                            KC_CAPS,        KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCLN,        KC_BSLS,
         KC_TAB,         HOME_A,         HOME_R,         HOME_S,         HOME_T,         KC_D,           KC_HYPR,                                KC_MEH,         KC_H,           HOME_N,         HOME_E,         HOME_I,         HOME_O,         KC_QUOTE,
-        KC_LSHIFT,      TD4,            KC_X,           KC_C,           TD0,            KC_B,                                                                   KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
-        KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,                       TD1,                                    TD2,                            KC_LBRACKET,    KC_RBRACKET,    KC_UP,          KC_DOWN,        XXXXXXX,
-                                                                        OS_LSFT,        KC_BSPACE,      TO(BOARD),                              TD3,            KC_ENTER,       KC_SPACE
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           TD0,            KC_B,                                                                   KC_K,           KC_M,           KC_COMM,        KC_DOT,         KC_SLASH,       KC_RSFT,
+        KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,                       TD1,                                    TD2,                            KC_LBRC,        KC_RBRC,        KC_UP,          KC_DOWN,        XXXXXXX,
+                                                                        KC_DEL,         KC_BSPC,        TO(MOUSE),                              TD3,            KC_ENT,         KC_SPC
     ),
     [ARROWS] = LAYOUT_moonlander(
         _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        KC_PGDN,        KC_PGUP,        _______,        _______,        _______,
         _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       _______,        _______,
         _______,        _______,        _______,        _______,        _______,        _______,                                                                _______,        TO(COLEMAK),    _______,        _______,        _______,        _______,
         _______,        _______,        _______,        _______,        _______,                        _______,                                _______,                        _______,        _______,        _______,        _______,        _______,
@@ -28,11 +32,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [QWERTY] = LAYOUT_moonlander(
         KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           _______,                                _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-        _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                _______,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-        KC_TAB,         QWRT_A,         QWRT_S,         QWRT_D,         QWRT_F,         KC_G,           KC_LBRACKET,                            KC_RBRACKET,    KC_H,           QWRT_J,         QWRT_K,         QWRT_L,         QWRT_SEMI,      KC_QUOTE,
-        KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                   KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
+        _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                _______,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+        KC_TAB,         QWRT_A,         QWRT_S,         QWRT_D,         QWRT_F,         KC_G,           KC_LBRC,                                KC_RBRC,        KC_H,           QWRT_J,         QWRT_K,         QWRT_L,         QWRT_SEMI,      KC_QUOTE,
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                   KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
         _______,        _______,        _______,        _______,        KC_GRAVE,                       _______,                                _______,                        KC_DOWN,        KC_UP,          KC_LEFT,        KC_RIGHT,       _______,
-                                                                        KC_SPACE,       KC_BSPACE,      _______,                                TO(COLEMAK),    KC_ENTER,       KC_SPACE
+                                                                        KC_SPACE,       KC_BSPC,        _______,                                TO(COLEMAK),    KC_ENTER,       KC_SPACE
     ),
     [MOUSE] = LAYOUT_moonlander(
         _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
@@ -42,81 +46,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,        _______,        _______,        _______,        _______,                        _______,                                _______,                        _______,        _______,        _______,        _______,        _______,
                                                                         _______,        _______,        _______,                                TO(COLEMAK),    _______,        _______
     ),
-    [BOARD] = LAYOUT_moonlander(
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        DT_PRNT,        DT_DOWN,        DT_UP,          _______,        _______,        _______,
-        _______,        KC_LGUI,        KC_LALT,        KC_LSFT,        KC_LCTL,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,                                                                _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        _______,        _______,        _______,                        QK_MAKE,                                _______,                        _______,        _______,        _______,        _______,        _______,
-                                                                        _______,        EE_CLR,         DB_TOGG,                                TO(COLEMAK),    _______,        _______
+    [SYMBOLS] = LAYOUT_moonlander(
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        KC_CAPS,        KC_SCRL,        KC_NUM,         _______,        _______,
+        _______,        _______,        _______,        S(KC_PGDN),     S(KC_PGUP),     _______,        _______,                                _______,        _______,        KC_7,           KC_8,           KC_9,           _______,        _______,
+        _______,        KC_PSCR,        _______,        KC_END,         KC_HOME,        _______,        _______,                                _______,        _______,        KC_4,           KC_5,           KC_6,           _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,                                                                _______,        KC_1,           KC_2,           KC_3,           _______,        _______,
+        _______,        _______,        _______,        _______,        _______,                        _______,                                _______,                        KC_0,           _______,        _______,        _______,        _______,
+                                                                        MO(FUNCS),      _______,        _______,                                _______,        _______,        TO(COLEMAK)
     ),
     [FUNCS] = LAYOUT_moonlander(
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        KC_F1,          KC_F2,          KC_F3,          _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        KC_F4,          KC_F5,          KC_F6,          _______,        _______,
-        _______,        _______,        _______,        _______,        _______,        _______,                                                                _______,        KC_F7,          KC_F8,          KC_F9,          _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        KC_F13,         KC_F14,         KC_F15,         KC_F16,         KC_F20,        KC_F24,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        KC_F12,         KC_F7,          KC_F8,          KC_F9,          KC_F19,        KC_F23,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        KC_F11,         KC_F4,          KC_F5,          KC_F6,          KC_F18,        KC_F22,
+        _______,        _______,        _______,        _______,        _______,        _______,                                                                KC_F10,         KC_F1,          KC_F2,          KC_F3,          KC_F17,        KC_F21,
         _______,        _______,        _______,        _______,        _______,                        _______,                                _______,                        _______,        _______,        _______,        _______,        _______,
-                                                                        _______,        _______,        _______,                                _______,        _______,        _______
+                                                                        _______,        _______,        _______,                                TO(COLEMAK),    _______,        KC_0
     ),
 };
 
-#define ______ {0, 0, 0}
-
-const ledmap PROGMEM ledmaps[] = {
-    [COLEMAK] = RGB_MATRIX_LAYOUT_LEDMAP(
-        RED,            GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          CHART,                                  CHART,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          RED,
-        MAGENT,         RED,            RED,            RED,            RED,            RED,            ______,                                 ______,         RED,            RED,            RED,            RED,            RED,            RED,
-        MAGENT,         CYAN,           CYAN,           CYAN,           CYAN,           RED,            PURPLE,                                 PURPLE,         RED,            CYAN,           CYAN,           CYAN,           CYAN,           RED,
-        BLUE,           RED,            RED,            RED,            RED,            RED,                                                                    RED,            RED,            RED,            RED,            RED,            BLUE,
-        BLUE,           CHART,          CHART,          BLUE,           RED,                            CORAL,                                  CORAL,                          RED,            RED,            CHART,          CHART,          ______,
-                                                                        MAGENT,         MAGENT,         CORAL,                                  CORAL,          MAGENT,         MAGENT
-    ),
-    [ARROWS] = RGB_MATRIX_LAYOUT_LEDMAP(
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            CYAN,           CYAN,           CYAN,           CYAN,           RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,                                                                    RED,            GREEN,          RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,                            RED,                                    RED,                            RED,            RED,            RED,            RED,            RED,
-                                                                        GREEN,          RED,            RED,                                    GREEN,          RED,            RED
-    ),
-    [MEDIA] = RGB_MATRIX_LAYOUT_LEDMAP(
-        BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,                                   BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           PURPLE,
-        BLUE,           BLUE,           BLUE,           YELLOW,         YELLOW,         BLUE,           BLUE,                                   BLUE,           MAGENT,         MAGENT,         MAGENT,         BLUE,           BLUE,           BLUE,
-        BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,                                   BLUE,           BLUE,           RED,            RED,            BLUE,           BLUE,           BLUE,
-        BLUE,           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,                                                                   BLUE,           RED,            RED,            BLUE,           BLUE,           BLUE,
-        BLUE,           BLUE,           BLUE,           BLUE,           BLUE,                           BLUE,                                   BLUE,                           BLUE,           BLUE,           BLUE,           BLUE,           BLUE,
-                                                                        BLUE,           BLUE,           BLUE,                                   GREEN,          BLUE,           BLUE
-    ),
-    [QWERTY] = RGB_MATRIX_LAYOUT_LEDMAP(
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            CYAN,           RED,            RED,            RED,            ______,                                 ______,         RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            CYAN,           CYAN,           CYAN,           RED,            RED,            RED,                                    RED,            RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,                                                                    RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,                            RED,                                    RED,                            RED,            RED,            RED,            RED,            ______,
-                                                                        RED,            RED,            ______,                                 GREEN,          RED,            RED
-    ),
-    [MOUSE] = RGB_MATRIX_LAYOUT_LEDMAP(
-        GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,                                  GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,
-        GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,                                  GREEN,          GREEN,          GREEN,          RED,            GREEN,          GREEN,          GREEN,
-        GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          RED,            GREEN,                                  GREEN,          RED,            RED,            RED,            RED,            GREEN,          GREEN,
-        GREEN,          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,                                                                  GREEN,          RED,            RED,            GREEN,          GREEN,          GREEN,
-        GREEN,          GREEN,          GREEN,          GREEN,          GREEN,                          GREEN,                                  GREEN,                          GREEN,          GREEN,          GREEN,          GREEN,          GREEN,
-                                                                        GREEN,          GREEN,          GREEN,                                  CYAN,          GREEN,          GREEN
-    ),
-    [BOARD] = RGB_MATRIX_LAYOUT_LEDMAP(
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,            RED,                                    RED,            RED,            MAGENT,         MAGENT,         MAGENT,            RED,            RED,
-        RED,            CYAN,           CYAN,           CYAN,           CYAN,           RED,            RED,                                    RED,            RED,            RED,            RED,            RED,           RED,            RED,
-        RED,            RED,            RED,            RED,            RED,            RED,                                                                    RED,            RED,            RED,            RED,            RED,            RED,
-        RED,            RED,            RED,            RED,            RED,                            MAGENT,                                 RED,                            RED,            RED,            RED,            RED,            RED,
-                                                                        RED,            MAGENT,         MAGENT,                                 GREEN,          RED,            RED
-    ),
-    [FUNCS] = RGB_MATRIX_LAYOUT_LEDMAP(
-        CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,                                   CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,
-        CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,                                   CYAN,           CYAN,           RED,            RED,            RED,            CYAN,           CYAN,
-        CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,                                   CYAN,           CYAN,           RED,            RED,            RED,            CYAN,           CYAN,
-        CYAN,           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,                                                                   CYAN,           RED,            RED,            RED,            CYAN,           CYAN,
-        CYAN,           CYAN,           CYAN,           CYAN,           CYAN,                           CYAN,                                   CYAN,                           CYAN,           CYAN,           CYAN,           CYAN,           CYAN,
-                                                                        CYAN,           CYAN,           CYAN,                                   CYAN,           CYAN,           CYAN
-    ),
-};
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch (keycode) {
+        case VRSN:
+            SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            return false;
+        }
+    }
+    return true;
+}
