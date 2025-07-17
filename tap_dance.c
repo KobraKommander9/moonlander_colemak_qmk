@@ -127,13 +127,12 @@ void dance_2_reset(tap_dance_state_t *state, void *user_data) {
 void dance_3_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[3].step = dance_step(state);
     switch (dance_state[3].step) {
-        case DOUBLE_TAP: layer_move(QWERTY); break;
+        case SINGLE_TAP: layer_move(QWERTY); break;
+        case DOUBLE_SINGLE_TAP: layer_move(GAME); break;
     }
 }
 
 void dance_3_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
-    switch (dance_state[3].step) {
-    }
     dance_state[3].step = 0;
 }

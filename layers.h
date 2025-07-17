@@ -5,6 +5,8 @@ enum layers {
     ARROWS,
     MEDIA,
     QWERTY,
+    GAME,
+    GAME_NUM,
     MOUSE,
     SYMBOLS,
     FUNCS,

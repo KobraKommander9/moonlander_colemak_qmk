@@ -31,12 +31,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                         _______,        _______,        _______,                                TO(COLEMAK),    _______,        _______
     ),
     [QWERTY] = LAYOUT_moonlander(
-        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           _______,                                _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-        _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,                                _______,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_LEFT,                                KC_RIGHT,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
+        CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           XXXXXXX,                                KC_CAPS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
         KC_TAB,         QWRT_A,         QWRT_S,         QWRT_D,         QWRT_F,         KC_G,           KC_LBRC,                                KC_RBRC,        KC_H,           QWRT_J,         QWRT_K,         QWRT_L,         QWRT_SEMI,      KC_QUOTE,
         KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                   KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
-        _______,        _______,        _______,        _______,        KC_GRAVE,                       _______,                                _______,                        KC_DOWN,        KC_UP,          KC_LEFT,        KC_RIGHT,       _______,
-                                                                        KC_SPACE,       KC_BSPC,        _______,                                TO(COLEMAK),    KC_ENTER,       KC_SPACE
+        KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,                       XXXXXXX,                                KC_ESC,                         KC_DOWN,        KC_UP,          KC_LEFT,        KC_RIGHT,       XXXXXXX,
+                                                                        KC_SPACE,       KC_BSPC,        XXXXXXX,                                TO(COLEMAK),    KC_ENTER,       KC_SPACE
+    ),
+    [GAME] = LAYOUT_moonlander(
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        KC_Q,           KC_W,           KC_E,           KC_R,           XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_UP,          XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        KC_A,           KC_S,           KC_D,           KC_F,           XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_RSFT,        XXXXXXX,
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           XXXXXXX,                                                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,                                XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                        KC_SPACE,       MO(GAME_NUM),   TO(COLEMAK),                            TO(QWERTY),     XXXXXXX,        XXXXXXX
+    ),
+    [GAME_NUM] = LAYOUT_moonlander(
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+        XXXXXXX,        KC_9,           KC_8,           KC_7,           XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        KC_7,           KC_8,           KC_9,           XXXXXXX,        XXXXXXX,
+        XXXXXXX,        KC_6,           KC_5,           KC_4,           XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        KC_4,           KC_5,           KC_6,           XXXXXXX,        XXXXXXX,
+        KC_LSFT,        KC_3,           KC_2,           KC_1,           XXXXXXX,        XXXXXXX,                                                                XXXXXXX,        KC_1,           KC_2,           KC_3,           XXXXXXX,        XXXXXXX,
+        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_0,           XXXXXXX,                        XXXXXXX,                                XXXXXXX,                        KC_0,           XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
+                                                                        XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX
     ),
     [MOUSE] = LAYOUT_moonlander(
         _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
