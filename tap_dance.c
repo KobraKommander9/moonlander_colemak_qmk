@@ -7,7 +7,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [DANCE_V] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
     [DANCE_SCREENSHOT] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
     [DANCE_MEDIA] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
-    [DANCE_QWERTY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_3_finished, dance_3_reset),
 };
 
 uint8_t dance_step(tap_dance_state_t *state) {
@@ -119,20 +118,4 @@ void dance_2_reset(tap_dance_state_t *state, void *user_data) {
         case DOUBLE_SINGLE_TAP: unregister_code16(KC_ESCAPE); break;
     }
     dance_state[2].step = 0;
-}
-
-// ----------------------------------------------------------------------------
-// QWERTY
-
-void dance_3_finished(tap_dance_state_t *state, void *user_data) {
-    dance_state[3].step = dance_step(state);
-    switch (dance_state[3].step) {
-        case SINGLE_TAP: layer_move(QWERTY); break;
-        case DOUBLE_SINGLE_TAP: layer_move(GAME); break;
-    }
-}
-
-void dance_3_reset(tap_dance_state_t *state, void *user_data) {
-    wait_ms(10);
-    dance_state[3].step = 0;
 }

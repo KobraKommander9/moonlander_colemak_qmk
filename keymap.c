@@ -3,6 +3,7 @@
 #include "combos.h"
 #include "keys.h"
 #include "layers.h"
+#include "rgb.h"
 #include "tap_dance.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -12,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         HOME_A,         HOME_R,         HOME_S,         HOME_T,         KC_D,           KC_HYPR,                                KC_MEH,         KC_H,           HOME_N,         HOME_E,         HOME_I,         HOME_O,         KC_QUOTE,
         KC_LSFT,        KC_Z,           KC_X,           KC_C,           TD0,            KC_B,                                                                   KC_K,           KC_M,           KC_COMM,        KC_DOT,         KC_SLASH,       KC_RSFT,
         KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,                       TD1,                                    TD2,                            KC_LBRC,        KC_RBRC,        KC_UP,          KC_DOWN,        XXXXXXX,
-                                                                        KC_DEL,         KC_BSPC,        TO(MOUSE),                              TD3,            KC_ENT,         KC_SPC
+                                                                        KC_DEL,         KC_BSPC,        TO(MOUSE),                              TO(QWERTY),     KC_ENT,         KC_SPC
     ),
     [ARROWS] = LAYOUT_moonlander(
         _______,        _______,        _______,        _______,        _______,        _______,        _______,                                _______,        _______,        _______,        _______,        _______,        _______,        _______,
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         QWRT_A,         QWRT_S,         QWRT_D,         QWRT_F,         KC_G,           KC_LBRC,                                KC_RBRC,        KC_H,           QWRT_J,         QWRT_K,         QWRT_L,         QWRT_SEMI,      KC_QUOTE,
         KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                   KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
         KC_LALT,        KC_LEFT,        KC_RIGHT,       KC_LGUI,        KC_GRAVE,                       XXXXXXX,                                KC_ESC,                         KC_DOWN,        KC_UP,          KC_LEFT,        KC_RIGHT,       XXXXXXX,
-                                                                        KC_SPACE,       KC_BSPC,        XXXXXXX,                                TO(COLEMAK),    KC_ENTER,       KC_SPACE
+                                                                        KC_SPACE,       KC_BSPC,        TO(GAME),                               TO(COLEMAK),    KC_ENTER,       KC_SPACE
     ),
     [GAME] = LAYOUT_moonlander(
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
@@ -44,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX,        KC_A,           KC_S,           KC_D,           KC_F,           XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_RSFT,        XXXXXXX,
         KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           XXXXXXX,                                                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,                                XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-                                                                        KC_SPACE,       MO(GAME_NUM),   TO(COLEMAK),                            TO(QWERTY),     XXXXXXX,        XXXXXXX
+                                                                        KC_SPACE,       MO(GAME_NUM),   TO(QWERTY),                             TO(COLEMAK),    XXXXXXX,        XXXXXXX
     ),
     [GAME_NUM] = LAYOUT_moonlander(
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
@@ -77,6 +78,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,        _______,        _______,        _______,        _______,        _______,                                                                KC_F10,         KC_F1,          KC_F2,          KC_F3,          KC_F17,        KC_F21,
         _______,        _______,        _______,        _______,        _______,                        _______,                                _______,                        _______,        _______,        _______,        _______,        _______,
                                                                         _______,        _______,        _______,                                TO(COLEMAK),    _______,        KC_0
+    ),
+};
+
+const ledmap PROGMEM ledmaps[] = {
+    [COLEMAK] = RGB_LAYOUT(
+        RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
+        RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
+        RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
+        RED,    RED,    RED,    RED,    RED,    RED,                        RED,    RED,    RED,    RED,    RED,    RED,
+        RED,    RED,    RED,    RED,    RED,            RED,        RED,            RED,    RED,    RED,    RED,    RED,
+                                        RED,    RED,    RED,        RED,    RED,    RED
     ),
 };
 
