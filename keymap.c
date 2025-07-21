@@ -87,7 +87,7 @@ const ledmap PROGMEM ledmaps[] = {
         RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
         RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
         RED,    RED,    RED,    RED,    RED,    RED,                        RED,    RED,    RED,    RED,    RED,    RED,
-        RED,    RED,    RED,    RED,    RED,            RED,        RED,            RED,    RED,    RED,    RED,    RED,
+        RED,    RED,    RED,    RED,    RED,            RED,        RED,            RED,    RED,    RED,    RED,    BLUE,
                                         RED,    RED,    RED,        RED,    RED,    RED
     ),
 };

@@ -13,16 +13,16 @@
     { k00, k01, k02, k03, k04, k05, k06 }, \
     { k10, k11, k12, k13, k14, k15, k16 }, \
     { k20, k21, k22, k23, k24, k25, k26 }, \
-    { k30, k31, k32, k33, k34, k35, KC_NO }, \
-    { k40, k41, k42, k43, k44, KC_NO, KC_NO }, \
-    { k50, k51, k52, k53, KC_NO, KC_NO, KC_NO }, \
+    { k30, k31, k32, k33, k34, k35, { HSV_OFF } }, \
+    { k40, k41, k42, k43, k44, { HSV_OFF }, { HSV_OFF } }, \
+    { k50, k51, k52, k53, { HSV_OFF }, { HSV_OFF }, { HSV_OFF } }, \
 \
     { k60, k61, k62, k63, k64, k65, k66 }, \
     { k70, k71, k72, k73, k74, k75, k76 }, \
     { k80, k81, k82, k83, k84, k85, k86 }, \
-    { KC_NO,k91, k92, k93, k94, k95, k96 }, \
-    { KC_NO, KC_NO, ka2, ka3, ka4, ka5, ka6 }, \
-    { KC_NO, KC_NO, KC_NO, kb3, kb4, kb5, kb6  } \
+    { { HSV_OFF }, k91, k92, k93, k94, k95, k96 }, \
+    { { HSV_OFF }, { HSV_OFF }, ka2, ka3, ka4, ka5, ka6 }, \
+    { { HSV_OFF }, { HSV_OFF }, { HSV_OFF }, kb3, kb4, kb5, kb6  } \
 }
 
 #define LED_LAYERS 1 // number of layers set in the ledmap

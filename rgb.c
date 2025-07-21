@@ -37,21 +37,17 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
         for (uint8_t col = 0; col < MATRIX_COLS; col++) {
             uint8_t index = g_led_config.matrix_co[row][col];
-            if (index >= led_min && index < led_max && index != NO_LED &&
-                keymap_key_to_keycode(layer, (keypos_t){col, row}) != KC_NO) {
+            hsv_t hsv = get_hsv_for_layer_key(layer, row, col);
 
-                hsv_t hsv = get_hsv_for_layer_key(layer, row, col);
-
-                if (!hsv.h && !hsv.s && !hsv.v) {
-                    rgb_matrix_set_color(index, 0, 0, 0);
-                } else {
-                    if (hsv.v > rgb_matrix_get_val()) {
-                        hsv.v = rgb_matrix_get_val();
-                    }
-
-                    rgb_t rgb = hsv_to_rgb(hsv);
-                    rgb_matrix_set_color(index, rgb.r, rgb.g, rgb.b);
+            if (!hsv.h && !hsv.s && !hsv.v) {
+                rgb_matrix_set_color(index, 0, 0, 0);
+            } else {
+                if (hsv.v > rgb_matrix_get_val()) {
+                    hsv.v = rgb_matrix_get_val();
                 }
+
+                rgb_t rgb = hsv_to_rgb(hsv);
+                rgb_matrix_set_color(index, rgb.r, rgb.g, rgb.b);
             }
         }
     }
