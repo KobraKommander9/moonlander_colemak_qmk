@@ -4,14 +4,19 @@
 static compiled_hsv compiled_ledmaps[LED_LAYERS][MATRIX_ROWS][MATRIX_COLS];
 
 hsv_t get_hsv_for_layer_key(uint8_t layer, uint8_t row, uint8_t col) {
-    hsv_t hsv = {0, 0, 0};
-    if (layer < LED_LAYERS-1) {
+    hsv_t hsv = ______;
+    if (layer < 0) {
         return hsv;
     }
 
     compiled_hsv comp = compiled_ledmaps[layer][row][col];
     if (comp.compiled) {
         return comp.hsv;
+    } else if (!led_layers[layer]) {
+        hsv = get_hsv_for_layer_key(layer - 1, row, col);
+        compiled_ledmaps[layer][row][col].hsv = hsv;
+        compiled_ledmaps[layer][row][col].compiled = true;
+        return hsv;
     }
 
     hsv.h = pgm_read_byte(&ledmaps[layer][row][col][0]);
@@ -30,7 +35,7 @@ hsv_t get_hsv_for_layer_key(uint8_t layer, uint8_t row, uint8_t col) {
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
-    if (layer < LED_LAYERS-1) {
+    if (layer < 0 || !led_layers[layer]) {
         return false;
     }
 
@@ -39,7 +44,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             uint8_t index = g_led_config.matrix_co[row][col];
             hsv_t hsv = get_hsv_for_layer_key(layer, row, col);
 
-            if (!hsv.h && !hsv.s && !hsv.v) {
+            if (hsv.h < 0 && hsv.s < 0 && hsv.v < 0) {
+                continue;
+            } else if (!hsv.h && !hsv.s && !hsv.v) {
                 rgb_matrix_set_color(index, 0, 0, 0);
             } else {
                 if (hsv.v > rgb_matrix_get_val()) {

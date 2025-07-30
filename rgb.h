@@ -1,6 +1,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+#include "layers.h"
 
 #define RGB_LAYOUT( \
     k00, k01, k02, k03, k04, k05, k06,   k60, k61, k62, k63, k64, k65, k66, \
@@ -25,7 +26,18 @@
     { { HSV_OFF }, { HSV_OFF }, { HSV_OFF }, kb3, kb4, kb5, kb6  } \
 }
 
-#define LED_LAYERS 1 // number of layers set in the ledmap
+#define LED_LAYERS 9
+static const bool led_layers[] = {
+    [COLEMAK] = true,
+    [ARROWS] = true,
+    [MEDIA] = true,
+    [QWERTY] = false,
+    [GAME] = false,
+    [GAME_NUM] = false,
+    [MOUSE] = false,
+    [SYMBOLS] = false,
+    [FUNCS] = false,
+};
 
 typedef uint8_t ledmap[MATRIX_ROWS][MATRIX_COLS][3];
 extern const ledmap ledmaps[];
@@ -36,6 +48,7 @@ typedef struct {
 } compiled_hsv;
 
 #define ______ { -1, -1, -1 }
+#define XXXXXX HSV_OFF
 
 #define RED { HSV_RED }
 #define CORAL { HSV_CORAL }
