@@ -1,13 +1,12 @@
 #pragma once
 
 enum layers {
-    COLEMAK,
-    ARROWS,
-    MEDIA,
-    QWERTY,
+    CLMK,
+    AROW,
+    MDIA,
+    QWRT,
     GAME,
-    GAME_NUM,
-    MOUSE,
-    SYMBOLS,
-    FUNCS,
+    GMNM,
+    SYMB,
+    FUNC,
 };

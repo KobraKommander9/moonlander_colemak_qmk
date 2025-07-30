@@ -26,17 +26,16 @@
     { { HSV_OFF }, { HSV_OFF }, { HSV_OFF }, kb3, kb4, kb5, kb6  } \
 }
 
-#define LED_LAYERS 9
+#define LED_LAYERS 8
 static const bool led_layers[] = {
-    [COLEMAK] = true,
-    [ARROWS] = true,
-    [MEDIA] = true,
-    [QWERTY] = false,
+    [CLMK] = true,
+    [AROW] = true,
+    [MDIA] = true,
+    [QWRT] = false,
     [GAME] = false,
-    [GAME_NUM] = false,
-    [MOUSE] = false,
-    [SYMBOLS] = false,
-    [FUNCS] = false,
+    [GMNM] = false,
+    [SYMB] = false,
+    [FUNC] = false,
 };
 
 typedef uint8_t ledmap[MATRIX_ROWS][MATRIX_COLS][3];
