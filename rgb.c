@@ -4,7 +4,7 @@
 static compiled_hsv compiled_ledmaps[LED_LAYERS][MATRIX_ROWS][MATRIX_COLS];
 
 hsv_t get_hsv_for_layer_key(uint8_t layer, uint8_t row, uint8_t col) {
-    hsv_t hsv = ______;
+    hsv_t hsv = ANIMTE;
     if (layer < 0) {
         return hsv;
     }
@@ -23,8 +23,8 @@ hsv_t get_hsv_for_layer_key(uint8_t layer, uint8_t row, uint8_t col) {
     hsv.s = pgm_read_byte(&ledmaps[layer][row][col][1]);
     hsv.v = pgm_read_byte(&ledmaps[layer][row][col][2]);
 
-    if (hsv.h < 0 && hsv.s < 0 && hsv.v < 0) {
-        return get_hsv_for_layer_key(layer - 1, row, col);
+    if (hsv.h == 2 && hsv.s == 2 && hsv.v == 2) {
+        hsv = get_hsv_for_layer_key(layer - 1, row, col);
     }
 
     compiled_ledmaps[layer][row][col].hsv = hsv;
@@ -44,7 +44,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             uint8_t index = g_led_config.matrix_co[row][col];
             hsv_t hsv = get_hsv_for_layer_key(layer, row, col);
 
-            if (hsv.h < 0 && hsv.s < 0 && hsv.v < 0) {
+            if (hsv.h == 1 && hsv.s == 1 && hsv.v == 1) {
                 continue;
             } else if (!hsv.h && !hsv.s && !hsv.v) {
                 rgb_matrix_set_color(index, 0, 0, 0);

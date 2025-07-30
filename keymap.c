@@ -83,20 +83,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const ledmap PROGMEM ledmaps[] = {
     [CLMK] = RGB_LAYOUT(
-        RED,    RED,    RED,    RED,    RED,    RED,    PURPLE,     PURPLE, RED,    RED,    RED,    RED,    RED,    RED,
-        GREEN,  RED,    RED,    RED,    RED,    RED,    BLUE,       GREEN,  RED,    RED,    RED,    RED,    RED,    RED,
-        RED,    CYAN,   CYAN,   CYAN,   CYAN,   RED,    CYAN,       CYAN,   RED,    CYAN,   CYAN,   CYAN,   CYAN,   RED,
-        RED,    RED,    RED,    RED,    RED,    RED,                        RED,    RED,    RED,    RED,    RED,    RED,
-        RED,    PURPLE, PURPLE, RED,    RED,            RED,        RED,            RED,    RED,    PURPLE, PURPLE, ______,
-                                        RED,    RED,    BLUE,       BLUE,   RED,    RED
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, PURPLE,     PURPLE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+        GREEN,  ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, BLUE,       GREEN,  ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+        ANIMTE, CYAN,   CYAN,   CYAN,   CYAN,   ANIMTE, CYAN,       CYAN,   ANIMTE, CYAN,   CYAN,   CYAN,   CYAN,   ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,                     ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+        ANIMTE, PURPLE, PURPLE, ANIMTE, ANIMTE,         ANIMTE,     ANIMTE,         ANIMTE, ANIMTE, PURPLE, PURPLE, ANIMTE,
+                                        ANIMTE, ANIMTE, BLUE,       BLUE,   ANIMTE, ANIMTE
     ),
     [AROW] = RGB_LAYOUT(
-        ______, ______, ______, ______, ______, ______, ______,     ______, ______, ______, ______, ______, ______, ______,
-        ______, ______, ______, ______, ______, ______, ______,     ______, ______, BLUE,   BLUE,   ______, ______, ______,
-        ______, ______, ______, ______, ______, ______, ______,     ______, CYAN,   CYAN,   CYAN,   CYAN,   ______, ______,
-        ______, ______, ______, ______, ______, ______,                     ______, GREEN,  ______, ______, ______, ______,
-        ______, ______, ______, ______, ______,         ______,     ______,         ______, ______, ______, ______, ______,
-                                        BLUE,   ______, ______,     GREEN,  ______, ______
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, ANIMTE, BLUE,   BLUE,   ANIMTE, ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, CYAN,   CYAN,   CYAN,   CYAN,   ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,                     ANIMTE, GREEN,  ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,         ANIMTE,     ANIMTE,         ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+                                        BLUE,   ANIMTE, ANIMTE,     GREEN,  ANIMTE, ANIMTE
     ),
     [MDIA] = RGB_LAYOUT(
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   RED,
@@ -104,7 +104,7 @@ const ledmap PROGMEM ledmaps[] = {
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   RED,    RED,    BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,                       BLUE,   RED,    RED,    BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,           BLUE,       BLUE,           BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
-                                        BLUE,   BLUE,   BLUE,       GREEN,  BLUE,   BLUE
+                                        BLUE,   BLUE,   BLUE,       ______, BLUE,   BLUE
     ),
     // [LAYER] = RGB_LAYOUT(
     //     ______, ______, ______, ______, ______, ______, ______,     ______, ______, ______, ______, ______, ______, ______,

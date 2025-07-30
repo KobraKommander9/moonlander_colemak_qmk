@@ -46,8 +46,9 @@ typedef struct {
     bool compiled;
 } compiled_hsv;
 
-#define ______ { -1, -1, -1 }
 #define XXXXXX HSV_OFF
+#define ANIMTE { 1, 1, 1 } // animate
+#define ______ { 2, 2, 2 } // passthrough
 
 #define RED { HSV_RED }
 #define CORAL { HSV_CORAL }
