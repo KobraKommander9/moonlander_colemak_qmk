@@ -31,8 +31,8 @@ static const bool led_layers[] = {
     [CLMK] = true,
     [AROW] = true,
     [MDIA] = true,
-    [QWRT] = false,
-    [GAME] = false,
+    [QWRT] = true,
+    [GAME] = true,
     [GMNM] = false,
     [SYMB] = false,
     [FUNC] = false,
@@ -46,7 +46,7 @@ typedef struct {
     bool compiled;
 } compiled_hsv;
 
-#define XXXXXX HSV_OFF
+#define XXXXXX { HSV_OFF }
 #define ANIMTE { 1, 1, 1 } // animate
 #define ______ { 2, 2, 2 } // passthrough
 

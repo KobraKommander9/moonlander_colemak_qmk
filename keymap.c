@@ -40,12 +40,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         KC_SPACE,   KC_BSPC,    TO(GAME),       TO(CLMK),   KC_ENTER,   KC_SPACE
     ),
     [GAME] = LAYOUT_moonlander(
-        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    KC_Q,       KC_W,       KC_E,       KC_R,       XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_UP,      XXXXXXX,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    KC_A,       KC_S,       KC_D,       KC_F,       XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_RSFT,    XXXXXXX,
-        KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       XXXXXXX,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                XXXXXXX,        XXXXXXX,                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-                                                        KC_SPACE,   MO(GMNM),   TO(QWRT),       TO(CLMK),   XXXXXXX,    XXXXXXX
+        KC_6,       KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_ESC,         XXXXXXX,    KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINUS,
+        KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       XXXXXXX,        KC_LBRC,    KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_RBRC,
+        KC_CAPS,    KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_HYPR,        KC_MEH,     KC_H,       KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOTE,
+        KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,                                   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_UP,      KC_SLASH,
+        KC_LCTL,    KC_GRAVE,   XXXXXXX,    KC_LALT,    MO(GMNM),               XXXXXXX,        XXXXXXX,                KC_PMNS,    KC_PPLS,    KC_LEFT,    KC_DOWN,    KC_RIGHT,
+                                                        KC_SPACE,   KC_BSPC,    TO(QWRT),       TO(CLMK),   KC_ENTER,   KC_SPACE
     ),
     [GMNM] = LAYOUT_moonlander(
         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
@@ -105,6 +105,22 @@ const ledmap PROGMEM ledmaps[] = {
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,   BLUE,                       BLUE,   RED,    RED,    BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,           BLUE,       BLUE,           BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
                                         BLUE,   BLUE,   BLUE,       ______, BLUE,   BLUE
+    ),
+    [QWRT] = RGB_LAYOUT(
+        TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   PURPLE,     PURPLE, TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,
+        SPRING, TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,       SPRING, TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,
+        TEAL,   RED,    RED,    RED,    RED,    TEAL,   RED,        RED,    TEAL,   RED,    RED,    RED,    RED,    TEAL,
+        TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,                       TEAL,   TEAL,   TEAL,   TEAL,   TEAL,   TEAL,
+        TEAL,   PURPLE, PURPLE, TEAL,   TEAL,           TEAL,       TEAL,           TEAL,   TEAL,   PURPLE, PURPLE, TEAL,
+                                        TEAL,   TEAL,   GREEN,      GREEN,  TEAL,   TEAL
+    ),
+    [GAME] = RGB_LAYOUT(
+        RED,    RED,    RED,    RED,    RED,    RED,    GREEN,      XXXXXX, RED,    RED,    RED,    RED,    RED,    RED,
+        GREEN,  RED,    CYAN,   RED,    RED,    RED,    XXXXXX,     RED,    RED,    RED,    RED,    RED,    RED,    RED,
+        GREEN,  CYAN,   CYAN,   CYAN,   RED,    RED,    PURPLE,     PURPLE, RED,    RED,    RED,    RED,    RED,    RED,
+        PURPLE, CYAN,   CYAN,   CYAN,   RED,    RED,                        RED,    RED,    RED,    RED,    CYAN,   RED,
+        PURPLE, RED,    XXXXXX, PURPLE, BLUE,           XXXXXX,     XXXXXX,         RED,    RED,    CYAN,   CYAN,   CYAN,
+                                        GREEN,  GREEN,  BLUE,       SPRING, GREEN,  GREEN
     ),
     // [LAYER] = RGB_LAYOUT(
     //     ______, ______, ______, ______, ______, ______, ______,     ______, ______, ______, ______, ______, ______, ______,
