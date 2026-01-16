@@ -33,9 +33,9 @@ static const bool led_layers[] = {
     [MDIA] = true,
     [QWRT] = true,
     [GAME] = true,
-    [GMNM] = false,
-    [SYMB] = false,
-    [FUNC] = false,
+    [GMNM] = true,
+    [SYMB] = true,
+    [FUNC] = true,
 };
 
 typedef uint8_t ledmap[MATRIX_ROWS][MATRIX_COLS][3];

@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX,    KC_6,       KC_5,       KC_4,       XXXXXXX,    XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    KC_4,       KC_5,       KC_6,       XXXXXXX,    XXXXXXX,
         KC_LSFT,    KC_3,       KC_2,       KC_1,       XXXXXXX,    XXXXXXX,                                XXXXXXX,    KC_1,       KC_2,       KC_3,       XXXXXXX,    XXXXXXX,
         XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_0,       XXXXXXX,                XXXXXXX,        XXXXXXX,                KC_0,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-                                                        XXXXXXX,    XXXXXXX,    XXXXXXX,        XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                        XXXXXXX,    XXXXXXX,    XXXXXXX,        TO(GAME),   XXXXXXX,    XXXXXXX
     ),
     [SYMB] = LAYOUT_moonlander(
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    KC_CAPS,    KC_SCRL,    KC_NUM,     _______,    _______,
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,    KC_PSCR,    _______,    KC_END,     KC_HOME,    _______,    _______,        _______,    _______,    KC_4,       KC_5,       KC_6,       _______,    _______,
         _______,    _______,    _______,    _______,    _______,    _______,                                _______,    KC_1,       KC_2,       KC_3,       _______,    _______,
         _______,    _______,    _______,    _______,    _______,                _______,        _______,                KC_0,       _______,    _______,    _______,    _______,
-                                                        MO(FUNC),   _______,    _______,        _______,    _______,    TO(CLMK)
+                                                        MO(FUNC),   _______,    _______,        TO(CLMK),   _______,    _______
     ),
     [FUNC] = LAYOUT_moonlander(
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    KC_F13,     KC_F14,     KC_F15,     KC_F16,     KC_F20,     KC_F24,
@@ -121,6 +121,30 @@ const ledmap PROGMEM ledmaps[] = {
         PURPLE, CYAN,   CYAN,   CYAN,   RED,    RED,                        RED,    RED,    RED,    RED,    CYAN,   RED,
         PURPLE, RED,    RED,    PURPLE, BLUE,           GREEN,      TURQ,           PURPLE, RED,    CYAN,   CYAN,   CYAN,
                                         GREEN,  GREEN,  BLUE,       SPRING, GREEN,  GREEN
+    ),
+    [GMNM] = RGB_LAYOUT(
+        RED,    RED,    RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,    RED,    RED,
+        RED,    BLUE,   BLUE,   BLUE,   RED,    RED,    RED,        RED,    RED,    BLUE,   BLUE,   BLUE,   RED,    RED,
+        RED,    BLUE,   BLUE,   BLUE,   RED,    RED,    RED,        RED,    RED,    BLUE,   BLUE,   BLUE,   RED,    RED,
+        PURPLE, BLUE,   BLUE,   BLUE,   RED,    RED,                        RED,    BLUE,   BLUE,   BLUE,   RED,    RED,
+        RED,    RED,    RED,    BLUE,   RED,            RED,        RED,            BLUE,   RED,    RED,    RED,    RED,
+                                        RED,    RED,    RED,        GREEN,  RED,    RED
+    ),
+    [SYMB] = RGB_LAYOUT(
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, ANIMTE, CYAN,   CYAN,   CYAN,   ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, CYAN,   CYAN,   ANIMTE,     ANIMTE, ANIMTE, CYAN,   CYAN,   CYAN,   ANIMTE, ANIMTE,
+        ANIMTE, CYAN,   ANIMTE, ANIMTE, CYAN,   CYAN,   ANIMTE,     ANIMTE, ANIMTE, CYAN,   CYAN,   CYAN,   ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,                     ANIMTE, CYAN,   CYAN,   CYAN,   ANIMTE, ANIMTE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,         ANIMTE,     ANIMTE,         CYAN,   ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+                                        GREEN,  ANIMTE, ANIMTE,     GREEN,  ANIMTE, ANIMTE
+    ),
+    [FUNC] = RGB_LAYOUT(
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,     ANIMTE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE,
+        ANIMTE, PURPLE, PURPLE, PURPLE, PURPLE, ANIMTE, ANIMTE,     ANIMTE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,                     PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE,
+        ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,         ANIMTE,     ANIMTE,         ANIMTE, ANIMTE, ANIMTE, ANIMTE, ANIMTE,
+                                        ANIMTE, ANIMTE, ANIMTE,     GREEN,  ANIMTE, CYAN
     ),
     // [LAYER] = RGB_LAYOUT(
     //     ______, ______, ______, ______, ______, ______, ______,     ______, ______, ______, ______, ______, ______, ______,
